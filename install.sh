@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-[[ "x${OS}" = "xlinux" ]] || [[ "x${os}" = "xdarwin" ]] || {
+[[ "x${OS}" = "xlinux" ]] || [[ "x${OS}" = "xdarwin" ]] || {
   echo "Unsupported OS: ${OS}"
   exit 1
 }
@@ -42,7 +42,7 @@ ln -s ${HOME}/.vim/_vimrc ${HOME}/.vimrc
 ls -lah ${HOME} | grep vim
 
 # do plug-in installation
-vim -c 'PlugUpdate' \
+vim -c 'PlugInstall' \
     -c 'q!' \
     -c 'q!'
 
