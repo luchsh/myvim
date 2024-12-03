@@ -33,25 +33,7 @@
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-Plug 'preservim/nerdtree'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'preservim/nerdcommenter'
-Plug 'mileszs/ack.vim'
-Plug 'fatih/vim-go'
-Plug 'junegunn/fzf'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'neoclide/coc.nvim', {'branch':'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'ilyachur/cmake4vim'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'antiagainst/vim-tablegen'
-
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
-
-" Initialize plugin system
-call plug#end()
+source ~/.vim/plug_deps.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go config

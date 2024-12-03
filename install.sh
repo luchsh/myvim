@@ -18,7 +18,7 @@ echo "Installation timestamp=${TIMESTAMP}"
 # install latest plug.vim to ./autoload/
 VIM_PLUG_URL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 [[ -d ${SRC_DIR}/autoload ]] || mkdir -p ${SRC_DIR}/autoload
-wget -q -o ${SRC_DIR}/autoload/$(basename ${VIM_PLUG_URL}) ${VIM_PLUG_URL}
+wget -q -O ${SRC_DIR}/autoload/$(basename ${VIM_PLUG_URL}) ${VIM_PLUG_URL}
 
 # Create link to ~/.vim
 if [[ -L ${HOME}/.vim ]]; then
@@ -42,13 +42,15 @@ ln -s ${HOME}/.vim/_vimrc ${HOME}/.vimrc
 ls -lah ${HOME} | grep vim
 
 # do plug-in installation
-vim -c 'PlugInstall' \
+# using a temporary
+vim -u ${SRC_DIR}/plug_deps.vim \
+    -c 'PlugInstall' \
     -c 'q!' \
     -c 'q!'
 
 # install CoC components
-vim -c "CocInstall coc-go coc-json coc-tsserver coc-css coc-clangd coc-pyright coc-html coc-lua coc-rust-analyzer" \
-    -c "q!" \
-    -c 'CocUpdate' \
-    -c "q!"
+vim -c 'CocInstall coc-go coc-json coc-tsserver coc-css coc-clangd coc-pyright coc-html coc-lua coc-rust-analyzer' \
     -c 'q!' \
+    -c 'CocUpdate' \
+    -c 'q!' \
+    -c 'q!'
