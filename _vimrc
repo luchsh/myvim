@@ -75,6 +75,11 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
+let g:coc_global_extensions = ['coc-tsserver', 'coc-go', 'coc-json',
+      \ 'coc-tsserver', 'coc-css', 'coc-clangd', 'coc-pyright', 'coc-html',
+      \ 'coc-lua', 'coc-rust-analyzer']
+
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -262,6 +267,11 @@ map <leader>fz  :FZF<cr>
 "let g:mkdp_auto_close = 1
 let g:mkdp_combine_preview = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Float term
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic configs

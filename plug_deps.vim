@@ -21,8 +21,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'ilyachur/cmake4vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'antiagainst/vim-tablegen'
+Plug 'voldikss/vim-floaterm'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+" pilot with typescript support
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize plugin system
 call plug#end()
