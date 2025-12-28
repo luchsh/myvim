@@ -48,7 +48,7 @@ let g:go_info_mode='gopls'
 map <C-n>   :NERDTreeToggle<CR>
 map <leader>fc    :NERDTreeFind<CR>
 "let g:NERDTreeShowHidden = 0
-let g:NERDTreeNodeDelimiter = "\u00a0"
+"let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
@@ -364,3 +364,8 @@ autocmd FileType go setlocal tabstop=2 softtabstop=2 noexpandtab
 autocmd FileType c,h,s,S,cc,cpp,hpp setlocal tabstop=2 softtabstop=2 expandtab
 autocmd FileType java,html,css,js,json,xml,xhtml setlocal tabstop=2 softtabstop=2 expandtab
 autocmd FileType sh,py,bash setlocal tabstop=2 softtabstop=2 expandtab
+
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030
+set termencoding=utf-8
