@@ -28,7 +28,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 
 " Initialize plugin system
 call plug#end()
