@@ -365,6 +365,8 @@ autocmd FileType c,h,s,S,cc,cpp,hpp setlocal tabstop=2 softtabstop=2 expandtab
 autocmd FileType java,html,css,js,json,xml,xhtml setlocal tabstop=2 softtabstop=2 expandtab
 autocmd FileType sh,py,bash setlocal tabstop=2 softtabstop=2 expandtab
 
+set hlsearch
+
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030
