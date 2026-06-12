@@ -13,7 +13,6 @@ Plug 'preservim/nerdtree'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'preservim/nerdcommenter'
 Plug 'mileszs/ack.vim'
-Plug 'fatih/vim-go'
 Plug 'junegunn/fzf'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
@@ -29,8 +28,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ghifarit53/tokyonight-vim'
 
-
-" Plug 'puremourning/vimspector'
 
 " Initialize plugin system
 call plug#end()

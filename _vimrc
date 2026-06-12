@@ -73,7 +73,7 @@ let g:cmake_build_type = 'Debug'
 " ack.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ackprg = 'ag --nogroup --nocolor --column'
-map <leader>ws  :Ack <cword><cr>
+map <leader>sw  :Ack <cword><cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.vim """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -128,7 +128,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> <C-]> <Plug>(coc-definition)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -152,6 +152,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>fa  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -284,23 +285,10 @@ let g:mkdp_combine_preview = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Float term
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vimspector
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>dd :call vimspector#Launch()<CR>
-nnoremap <Leader>de :call vimspector#Reset()<CR>
-nnoremap <Leader>dc :call vimspector#Continue()<CR>
-
-nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
-
-nmap <Leader>dk <Plug>VimspectorRestart
-nmap <Leader>dh <Plug>VimspectorStepOut
-nmap <Leader>dl <Plug>VimspectorStepInto
-nmap <Leader>dj <Plug>VimspectorStepOver
+nnoremap   <silent>   <leader>t   :FloatermToggle<CR>
+tnoremap   <silent>   <leader>t   <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic configs
@@ -375,36 +363,3 @@ set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030
 set termencoding=utf-8
 
 autocmd BufWritePre * :%s/\s\+$//e
-
-
-" ==============================================================================
-
-" 定义一个函数，用于检查并source本地的.vimrc
-function! SourceLocalVimrc()
-  " 构造当前目录下的.vimrc文件路径
-  let l:local_vimrc = getcwd() . '/.vimrc'
-
-  " 检查文件是否存在且为普通文件
-  if filereadable(l:local_vimrc)
-    " 执行source命令来加载本地配置
-    execute 'source' l:local_vimrc
-    " (可选) 在命令行显示一条提示信息
-    echomsg "Sourced local .vimrc from: " . l:local_vimrc
-  else
-    " (可选) 如果不需要提示，可以删除这一行
-    echomsg "No local .vimrc found in current directory."
-  endif
-endfunction
-
-" 创建一个自动命令组，方便管理和清理
-augroup LocalVimRC
-  " 在定义新的自动命令前，先清除这个组里已有的命令，防止重复加载
-  autocmd!
-
-  " 当Vim完全启动后（VimEnter事件），调用我们的函数
-  autocmd VimEnter * call SourceLocalVimrc()
-
-  " 当工作目录改变后（DirChanged事件），调用我们的函数
-  " * 表示对所有窗口生效
-  autocmd DirChanged * call SourceLocalVimrc()
-augroup END
