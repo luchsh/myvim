@@ -343,18 +343,20 @@ endif
 "colorscheme solarized8_high
 "colorscheme desert
 
-" If you have vim >=8.0 or Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
-
 syntax enable
 
-if !empty($TMUX) && !empty($TMUX_PANE)
-	colorscheme elflord
-else
-	colorscheme solarized8_high
-endif
+set termguicolors
+
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
+
+"if !empty($TMUX) && !empty($TMUX_PANE)
+"	colorscheme elflord
+"else
+"	colorscheme solarized8_high
+"endif
 
 highlight CursorLine gui=underline cterm=underline
 set directory=$HOME/.cache/vim

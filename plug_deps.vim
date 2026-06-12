@@ -27,6 +27,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'ghifarit53/tokyonight-vim'
+
 
 " Plug 'puremourning/vimspector'
 
