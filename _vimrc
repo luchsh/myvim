@@ -52,7 +52,21 @@ map <leader>fc    :NERDTreeFind<CR>
 
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+"autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+autocmd VimEnter * if argc() > 0 || exists("s:std_in")
+      \| NERDTreeFind | wincmd p
+      \| else
+      \| NERDTree | wincmd p | Startify
+      \| endif
+
+" automatically locate the opened file
+augroup NERDTree_Auto_Find
+  autocmd!
+  " 仅普通文件触发，排除 NERDTree/Startify 自身窗口
+  autocmd BufEnter *
+    \ if &ft != 'nerdtree' && &ft != 'startify'
+    \| silent NERDTreeFind | wincmd p
+    \| endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 "autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
@@ -310,7 +324,7 @@ map <leader>gb  :buffer
 map <leader>db  :bdelete
 map <C-Tab>     :b#<cr>
 " convenient asyncRun tasks
-map <leader>ar  :copen<cr>:AsyncRun
+map <leader>ar  :copen<cr>:AsyncRun<space>
 map <leader>bg  <leader>ar sh -x build.sh<cr>
 
 " fonts

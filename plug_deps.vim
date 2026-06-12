@@ -27,7 +27,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ghifarit53/tokyonight-vim'
-
+Plug 'mhinz/vim-startify'
 
 " Initialize plugin system
 call plug#end()
