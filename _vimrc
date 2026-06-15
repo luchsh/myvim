@@ -305,6 +305,14 @@ let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AsyncRun
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" convenient asyncRun tasks
+map <leader>ar  :AsyncRun<space>
+map <leader>bg  <leader>ar sh -x build.sh<cr>
+let g:asyncrun_open = 8
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
@@ -323,9 +331,6 @@ map <leader>lb  :buffers<cr>
 map <leader>gb  :buffer
 map <leader>db  :bdelete
 map <C-Tab>     :b#<cr>
-" convenient asyncRun tasks
-map <leader>ar  :copen<cr>:AsyncRun<space>
-map <leader>bg  <leader>ar sh -x build.sh<cr>
 
 " fonts
 if has('gui_running')

@@ -2,12 +2,12 @@
 #
 
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-[[ "x${OS}" = "xlinux" ]] || [[ "x${OS}" = "xdarwin" ]] || {
+[[ "${OS}" = "linux" || "${OS}" = "darwin" ]] || {
   echo "Unsupported OS: ${OS}"
   exit 1
 }
 
-if [[ "x${OS}" = "xdarwin" ]]; then
+if [[ "${OS}" = "darwin" ]]; then
   brew install llvm fzf node python
   pip3 install cmake-language-server
   npm install -g bash-language-server
