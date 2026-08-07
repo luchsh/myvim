@@ -293,8 +293,8 @@ let g:mkdp_combine_preview = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Float term
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap   <silent>   <leader>t   :FloatermToggle<CR>
-tnoremap   <silent>   <leader>t   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   <leader>tt   :FloatermToggle<CR>
+tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
 
@@ -326,6 +326,10 @@ map <leader>gb  :buffer
 map <leader>db  :bdelete
 map <C-Tab>     :b#<cr>
 map <leader>y   "*y
+map <leader>tn  :tabnext<cr>
+map <leader>tp  :tabprevious<cr>
+map <leader>tc  :tabnew<cr>
+map <leader>td  :tabclose<cr>
 
 " fonts
 if has('gui_running')
