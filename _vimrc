@@ -298,6 +298,12 @@ tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
 
+" 1. Kill all floaterms immediately when you trigger a exit command
+autocmd QuitPre * silent! FloatermKill!
+" 2. Backup: Wipe out any remaining core terminal buffers to prevent the warning
+autocmd QuitPre * silent! bufdo if &buftype == 'terminal' | bdelete! | endif
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AsyncRun
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
